@@ -1,0 +1,17 @@
+Parameters:
+  EC2InstanceType:
+    Type: String
+    AllowedValues:
+      - "t2.micro"
+      - "t2.small"
+      - "t2.medium"
+  EC2KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+Resources:
+  MyEC2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref EC2InstanceType
+      ImageId: ami-09d3b3274b6c5d4aa
+      KeyName: !Ref EC2KeyName
